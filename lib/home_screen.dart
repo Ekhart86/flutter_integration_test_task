@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
     borderRadius: BorderRadius.circular(20),
   );
 
-  final _notes = <String>[];
+  static final _notes = <String>[];
 
   @override
   void dispose() {
