@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
     borderRadius: BorderRadius.circular(20),
   );
 
-  var _notes = <String>[];
+  final _notes = <String>[];
 
   @override
   void dispose() {
@@ -33,8 +33,8 @@ class _HomeScreenState extends State<HomeScreen> {
           centerTitle: true,
           automaticallyImplyLeading: false,
           title: Text(
-            '${widget.email}',
-            style: TextStyle(color: Colors.white),
+            widget.email,
+            style: const TextStyle(color: Colors.white),
           ),
           actions: [
             IconButton(
@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 shape: _defaultShape,
                 child: Container(
                   height: 140,
-                  padding: EdgeInsets.all(5.0),
+                  padding: const EdgeInsets.all(5.0),
                   child: Column(
                     children: [
                       const SizedBox(height: 20.0),
@@ -63,12 +63,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: TextField(
                           controller: _inputController,
                           cursorColor: Colors.blue,
-                          style: TextStyle(color: Colors.black54),
+                          style: const TextStyle(color: Colors.black54),
                           decoration: InputDecoration(
                             hintText: 'Add a note',
-                            hintStyle:
-                                TextStyle(fontSize: 15.0, color: Colors.grey),
-                            contentPadding: EdgeInsets.only(left: 20.0),
+                            hintStyle: const TextStyle(
+                              fontSize: 15.0,
+                              color: Colors.grey,
+                            ),
+                            contentPadding: const EdgeInsets.only(left: 20.0),
                             filled: true,
                             border: OutlineInputBorder(
                               borderSide: BorderSide.none,
@@ -84,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             ElevatedButton(
-                              child: Text('Clear'),
+                              child: const Text('Clear'),
                               onPressed: () => _inputController.clear(),
                               style: ElevatedButton.styleFrom(
                                 primary: Theme.of(context).canvasColor,
@@ -96,7 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             const SizedBox(width: 15.0),
                             ElevatedButton(
-                              child: Text('Save'),
+                              child: const Text('Save'),
                               onPressed: () {
                                 setState(() {
                                   if (_inputController.text.isNotEmpty) {
@@ -123,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Expanded(
               child: _notes.isEmpty
-                  ? Center(
+                  ? const Center(
                       child: Text('You do not have any notes yet'),
                     )
                   : SingleChildScrollView(
@@ -133,7 +135,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           elevation: _defaultElevation,
                           shape: _defaultShape,
                           child: ListView.separated(
-                            physics: NeverScrollableScrollPhysics(),
+                            physics: const NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
                             itemCount: _notes.length,
                             itemBuilder: (BuildContext context, int index) {
@@ -151,12 +153,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                       color: Colors.red[400],
                                     ),
                                   ),
-                                  title: Text('${_notes[index]}'),
+                                  title: Text(_notes[index]),
                                 ),
                               );
                             },
-                            separatorBuilder: (BuildContext context, int index) {
-                              return Divider(
+                            separatorBuilder:
+                                (BuildContext context, int index) {
+                              return const Divider(
                                 color: Colors.grey,
                               );
                             },
