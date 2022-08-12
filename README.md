@@ -8,8 +8,7 @@
 
 3. Cover the login page with automated tests.  
    You can find the login and password details in this file below.
-   The number of tests should be as you see fit. Tests must be written using
-   gherkin scripts.
+   The number of tests should be as you see fit.
 
 4. Create a repository with the completed task and send a link to it in response. 
 
